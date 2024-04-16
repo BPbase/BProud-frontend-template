@@ -1,7 +1,7 @@
 {
-  "name": "bproud-frontstage-template",
-  "version": "0.0.1",
-  "description": "A Nuxt3 template of Bproud",
+  "name": "piman-frontstage-template",
+  "version": "0.0.3",
+  "description": "A Nuxt3 template of Piman",
   "author": "Blue Planet Inc.",
   "private": true,
   "scripts": {

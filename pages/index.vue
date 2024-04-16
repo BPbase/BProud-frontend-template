@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref('歡迎使用 BProud Frontstage Template')
+const pageTitle = ref('歡迎使用 Piman Frontstage Template')
 
 useHead({
   title: pageTitle,
