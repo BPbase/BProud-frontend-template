@@ -1,0 +1,50 @@
+/*************************
+  Text Colors
+*************************/
+
+.color-primary {
+  color: rgb(var(--color-primary));
+}
+
+.color-success {
+  color: rgb(var(--color-success));
+}
+
+.color-warning {
+  color: rgb(var(--color-warning));
+}
+
+.color-danger {
+  color: rgb(var(--color-danger));
+}
+
+
+/*************************
+  A11y
+*************************/
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important; /* Fix for https://github.com/twbs/bootstrap/issues/25686 */
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+
+/*************************
+  Keyframes
+*************************/
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

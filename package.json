@@ -1,0 +1,38 @@
+{
+  "name": "bproud-frontstage-template",
+  "version": "0.0.1",
+  "description": "A Nuxt3 template of Bproud",
+  "author": "Blue Planet Inc.",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --ext .ts,.js,.vue ."
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/html-validator": "^1.5.2",
+    "@types/node": "^20",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-vue": "^9.17.0",
+    "nuxt": "^3.8.0",
+    "prettier": "^3.0.3",
+    "vue-tsc": "^1.8.19"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.5.1",
+    "html2canvas": "^1.4.1",
+    "nuxt-swiper": "^1.2.2",
+    "pinia": "^2.1.7",
+    "vuewordcloud": "^19.0.0"
+  },
+  "overrides": {
+    "vue": "latest"
+  }
+}
