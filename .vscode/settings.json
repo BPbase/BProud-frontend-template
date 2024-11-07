@@ -1,6 +1,7 @@
 {
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    // https://stackoverflow.com/questions/77637621/vscode-workspace-settings-change-on-its-own
     "source.fixAll.eslint": "explicit"
-  }
+  },
+  "eslint.useFlatConfig": true
 }
