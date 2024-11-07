@@ -1,54 +1,19 @@
-const config = {
-  modules: ['@nuxtjs/html-validator', 'nuxt-swiper', '@pinia/nuxt'],
-
-  // pinia folder
-  imports: {
-    dirs: ['stores']
-  },
-
-  // 環境變數
-  runtimeConfig: {
-    env: '',
-    public: {
-      baseUrl: '',
-      websiteName: '',
-      websiteDescription: ''
-    }
-  },
-
-  devServer: {
-    // https
-    https: {
-      key: './https/localhost+3-key.pem',
-      cert: './https/localhost+3.pem'
-    }
-  },
-
-  // dev CORS
-  // vite: {
-  //   server: {
-  //     proxy: {}
-  //   }
-  // },
-
-  typescript: {
-    typeCheck: true
-  },
-
-  devtools: {
-    enabled: true
-  }
-}
-
-// if (process.env.NODE_ENV === 'development') {
-//   // dev CORS
-//   config.vite.server.proxy = {
-//     '/Path': {
-//       target: 'Domain',
-//       changeOrigin: true
-//     }
-//   }
-// }
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig(config)
+const config = {
+  runtimeConfig: {
+    env: "",
+    public: {
+      baseUrl: "",
+      websiteName: "",
+      websiteDescription: "",
+    },
+  },
+  compatibilityDate: "2024-04-03",
+  future: {
+    compatibilityVersion: 4,
+  },
+  devtools: { enabled: true },
+  modules: ["@nuxt/eslint", "@nuxtjs/html-validator", "nuxt-swiper"],
+};
+
+export default defineNuxtConfig(config);

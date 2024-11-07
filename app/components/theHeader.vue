@@ -1,7 +1,7 @@
 <template>
   <header>
     <a id="ak-jump" href="#ak-container" title="跳至主要內容">跳至主要內容</a>
-    <h1 class="visually-hidden">Website Name</h1>
+    <h1 class="visually-hidden">{{ runtimeConfig.public.websiteName }}</h1>
     <div class="header-container">
       <div class="logo">
         <nuxt-link to="/" title="前往首頁">
@@ -13,21 +13,41 @@
         </nuxt-link>
       </div>
       <div ref="checkScrollable" class="menubar">
-        <button type="button" class="btn-open-mobile-menu" @click="handleToggleMobileMenuBtn">
+        <button
+          type="button"
+          class="btn-open-mobile-menu"
+          @click="handleToggleMobileMenuBtn"
+        >
           選單
         </button>
         <div :class="['menu', mobileMenuStatus ? 'menu--open' : '']">
-          <button type="button" class="btn-close-mobile-menu" @click="handleCloseMobileMenuBtn">
+          <button
+            type="button"
+            class="btn-close-mobile-menu"
+            @click="handleCloseMobileMenuBtn"
+          >
             關閉選單
           </button>
-          <span v-if="scrollHint" class="visually-hidden">(橫向捲動顯示更多選單項目)</span>
+          <span v-if="scrollHint" class="visually-hidden"
+            >(橫向捲動顯示更多選單項目)</span
+          >
           <nav class="main-menu" aria-label="主要選單">
             <ul>
               <li>
-                <a id="ak-header" href="#ak-header" title="上方功能區塊" accesskey="U"> ::: </a>
+                <a
+                  id="ak-header"
+                  href="#ak-header"
+                  title="上方功能區塊"
+                  accesskey="U"
+                >
+                  :::
+                </a>
               </li>
               <li>
-                <nuxt-link to="/sitemap" title="前往網站導覽" @click="handleToggleMobileMenuBtn"
+                <nuxt-link
+                  to="/sitemap"
+                  title="前往網站導覽"
+                  @click="handleToggleMobileMenuBtn"
                   >網站導覽</nuxt-link
                 >
               </li>
@@ -41,18 +61,12 @@
                 </nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/screenshot" title="螢幕截圖" @click="handleToggleMobileMenuBtn">
-                  螢幕截圖
-                </nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/swiper" title="Swiper" @click="handleToggleMobileMenuBtn">
+                <nuxt-link
+                  to="/swiper"
+                  title="Swiper"
+                  @click="handleToggleMobileMenuBtn"
+                >
                   Swiper
-                </nuxt-link>
-              </li>
-              <li>
-                <nuxt-link to="/word-cloud" title="Word Cloud" @click="handleToggleMobileMenuBtn">
-                  Word Cloud
                 </nuxt-link>
               </li>
               <li>
@@ -95,29 +109,30 @@
 </template>
 
 <script setup lang="ts">
-const mobileMenuStatus = ref<boolean>(false)
+const runtimeConfig = useRuntimeConfig();
+const mobileMenuStatus = ref<boolean>(false);
 const handleToggleMobileMenuBtn = () => {
-  mobileMenuStatus.value = !mobileMenuStatus.value
-}
+  mobileMenuStatus.value = !mobileMenuStatus.value;
+};
 const handleCloseMobileMenuBtn = () => {
-  mobileMenuStatus.value = false
-}
-const checkScrollable = ref<HTMLElement | null>(null)
-const scrollHint = ref()
+  mobileMenuStatus.value = false;
+};
+const checkScrollable = ref<HTMLElement | null>(null);
+const scrollHint = ref();
 const checkTabAble = () => {
   if (
     checkScrollable.value!.scrollWidth > 0 &&
     checkScrollable.value!.scrollWidth > checkScrollable.value!.clientWidth
   ) {
-    scrollHint.value = true
+    scrollHint.value = true;
   } else {
-    scrollHint.value = false
+    scrollHint.value = false;
   }
-}
+};
 onMounted(() => {
-  checkTabAble()
-  window.addEventListener('resize', checkTabAble)
-})
+  checkTabAble();
+  window.addEventListener("resize", checkTabAble);
+});
 </script>
 
 <style scoped>
@@ -125,11 +140,12 @@ header {
   position: sticky;
   top: 0;
   background-color: rgba(var(--header-bg, var(--header-bg-default)), 0.9);
-  border-bottom: 1px solid rgba(var(--header-border-color, var(--header-border-color-default)), 0.3);
+  border-bottom: 1px solid
+    rgba(var(--header-border-color, var(--header-border-color-default)), 0.3);
   backdrop-filter: blur(0.25rem);
   z-index: 2;
 
-  & #ak-jump {
+  #ak-jump {
     position: absolute;
     top: -1px;
     left: 0;
@@ -137,19 +153,19 @@ header {
     color: transparent;
     z-index: -1;
 
-    &:focus-within {
+    &:focus-visible {
       color: rgb(var(--skip-btn-color, var(--skip-btn-color-default)));
       background-color: rgb(var(--skip-btn-bg, var(--skip-btn-bg--default)));
       z-index: inherit;
     }
   }
 
-  & .header-container {
+  .header-container {
     display: flex;
     align-items: center;
   }
 
-  & .btn-mobile {
+  .btn-mobile {
     display: none;
 
     @media screen and (width <=768px) {
@@ -157,19 +173,19 @@ header {
     }
   }
 
-  & .logo {
+  .logo {
     padding: 0 1rem 0 2rem;
 
     @media screen and (width <=768px) {
       padding: 0 1rem;
     }
 
-    & a {
+    a {
       display: inline-block;
     }
   }
 
-  & .menubar {
+  .menubar {
     flex: 1;
     white-space: nowrap;
     overflow: auto;
@@ -178,9 +194,21 @@ header {
         rgba(var(--header-bg, var(--header-bg-default)), 0.9) 30%,
         rgba(var(--header-bg-reverse), 0)
       ),
-      linear-gradient(to right, rgba(var(--header-bg-reverse), 0), rgba(var(--header-bg), 0.9) 70%),
-      radial-gradient(farthest-side at 0 50%, rgba(var(--header-bg-reverse), 0.2), transparent),
-      radial-gradient(farthest-side at 100% 50%, rgba(var(--header-bg-reverse), 0.2), transparent);
+      linear-gradient(
+        to right,
+        rgba(var(--header-bg-reverse), 0),
+        rgba(var(--header-bg), 0.9) 70%
+      ),
+      radial-gradient(
+        farthest-side at 0 50%,
+        rgba(var(--header-bg-reverse), 0.2),
+        transparent
+      ),
+      radial-gradient(
+        farthest-side at 100% 50%,
+        rgba(var(--header-bg-reverse), 0.2),
+        transparent
+      );
     background-position:
       left center,
       right center,
@@ -206,7 +234,7 @@ header {
     }
   }
 
-  & .btn-open-mobile-menu {
+  .btn-open-mobile-menu {
     display: none;
 
     @media screen and (width <=768px) {
@@ -214,7 +242,7 @@ header {
     }
   }
 
-  & .btn-close-mobile-menu {
+  .btn-close-mobile-menu {
     display: none;
 
     @media screen and (width <=768px) {
@@ -224,7 +252,7 @@ header {
     }
   }
 
-  & .menu {
+  .menu {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -240,7 +268,9 @@ header {
       width: 100%;
       max-width: 300px;
       height: 100dvh;
-      background-color: rgb(var(--menubar-mobile-bg, var(--menubar-mobile-bg-default)));
+      background-color: rgb(
+        var(--menubar-mobile-bg, var(--menubar-mobile-bg-default))
+      );
       padding: 1rem;
       overflow: auto;
       scroll-behavior: smooth;
@@ -254,7 +284,7 @@ header {
       max-width: 90dvw;
     }
 
-    & ul {
+    ul {
       display: flex;
       gap: 1.5rem;
 
@@ -263,7 +293,7 @@ header {
       }
     }
 
-    & a {
+    a {
       display: inline-block;
     }
   }
@@ -276,7 +306,7 @@ header {
     }
   }
 
-  & .sub-menu {
+  .sub-menu {
     padding-right: 2rem;
 
     @media screen and (width <=768px) {

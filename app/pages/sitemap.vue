@@ -11,7 +11,8 @@
           本網站的快速鍵(Accesskey)設定如下：
         </p>
         <p>
-          <kbd>Alt</kbd>+<kbd>U</kbd>：上方功能區塊，包括整合檢索頁面、主題專區頁面等。<br />
+          <kbd>Alt</kbd
+          >+<kbd>U</kbd>：上方功能區塊，包括整合檢索頁面、主題專區頁面等。<br />
           <kbd>Alt</kbd>+<kbd>S</kbd>：搜尋資料。<br />
           <kbd>Alt</kbd>+<kbd>C</kbd>：中央內容區塊，為本網站主要內容區。<br />
           <kbd>Alt</kbd>+<kbd>Z</kbd>：下方功能區塊。<br />
@@ -19,10 +20,12 @@
         <p>
           如果您的瀏覽器是
           Firefox，快速鍵的使用方法為<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>快速鍵字母</kbd>，例如
-          <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> 會跳至網頁中央區塊，以此類推。<br />
+          <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>
+          會跳至網頁中央區塊，以此類推。<br />
         </p>
         <p>
-          另外，如果您是 MAC 用戶，快速鍵的使用方法為<kbd>Control</kbd>+<kbd>Option</kbd>+<kbd
+          另外，如果您是 MAC
+          用戶，快速鍵的使用方法為<kbd>Control</kbd>+<kbd>Option</kbd>+<kbd
             >快速鍵字母</kbd
           ><br />
         </p>
@@ -55,14 +58,18 @@
               </tr>
               <tr>
                 <th scope="row">Firefox</th>
-                <td colspan="2"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>快速鍵字母</kbd></td>
+                <td colspan="2">
+                  <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>快速鍵字母</kbd>
+                </td>
                 <td>
                   Firefox 57 版本以上: <kbd>Control</kbd> + <kbd>Option</kbd> +
-                  <kbd>快速鍵字母</kbd> 或 <kbd>Control</kbd> + <kbd>Alt</kbd> +<kbd>快速鍵字母</kbd
-                  ><br />
-                  Firefox 14 版本以上: <kbd>Control</kbd> + <kbd>Alt</kbd> + <kbd>快速鍵字母</kbd>
+                  <kbd>快速鍵字母</kbd> 或 <kbd>Control</kbd> +
+                  <kbd>Alt</kbd> +<kbd>快速鍵字母</kbd><br />
+                  Firefox 14 版本以上: <kbd>Control</kbd> + <kbd>Alt</kbd> +
+                  <kbd>快速鍵字母</kbd>
                   <br />
-                  Firefox 13 版本以下: <kbd>Control</kbd> + <kbd>快速鍵字母</kbd>
+                  Firefox 13 版本以下: <kbd>Control</kbd> +
+                  <kbd>快速鍵字母</kbd>
                 </td>
               </tr>
               <tr>
@@ -77,8 +84,10 @@
                 <th scope="row">Edge</th>
                 <td>無</td>
                 <td rowspan="3">
-                  <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd>快速鍵字母</kbd><br />
-                  <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>快速鍵字母</kbd>
+                  <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd>快速鍵字母</kbd
+                  ><br />
+                  <kbd>Control</kbd> + <kbd>Option</kbd> + <kbd>Shift</kbd> +
+                  <kbd>快速鍵字母</kbd>
                 </td>
               </tr>
               <tr>
@@ -92,9 +101,12 @@
             </tbody>
           </table>
         </div>
-        <p>※ 當本網站項目頁籤無法以滑鼠點選時，您可利用以下鍵盤操作方式瀏覽資料：</p>
         <p>
-          <kbd>←</kbd> <kbd>→</kbd> 或 <kbd>↑</kbd> <kbd>↓</kbd>：按左右鍵或上下鍵移動標籤順序。
+          ※ 當本網站項目頁籤無法以滑鼠點選時，您可利用以下鍵盤操作方式瀏覽資料：
+        </p>
+        <p>
+          <kbd>←</kbd> <kbd>→</kbd> 或 <kbd>↑</kbd>
+          <kbd>↓</kbd>：按左右鍵或上下鍵移動標籤順序。
         </p>
         <p>
           <kbd>Tab</kbd
@@ -105,12 +117,13 @@
         </p>
         <p>
           <kbd>Tab</kbd> + <kbd>Shift</kbd>：按 <kbd>Tab</kbd> +
-          <kbd>Shift</kbd>可往回跳至上一筆資料；當跳回至標籤項目時您可繼續利用<kbd>←</kbd>
+          <kbd>Shift</kbd
+          >可往回跳至上一筆資料；當跳回至標籤項目時您可繼續利用<kbd>←</kbd>
           <kbd>→</kbd> 或 <kbd>↑</kbd> <kbd>↓</kbd>鍵移動標籤順序。
         </p>
       </section>
       <section>
-        <h3>網站地圖</h3>
+        <h3>{{ pageTitle }}</h3>
         <ul>
           <li>
             <nuxt-link to="/" title="前往首頁">首頁</nuxt-link>
@@ -122,64 +135,68 @@
 </template>
 
 <script setup lang="ts">
-const runtimeConfig = useRuntimeConfig()
-const pageTitle = ref('網站導覽')
+const runtimeConfig = useRuntimeConfig();
+const pageTitle = ref("網站導覽");
 const pageDescription = ref(
-  '提供' + runtimeConfig.public.websiteName + '的網站區塊、快捷鍵和網站地圖'
-)
-const route = useRoute()
+  "提供" + runtimeConfig.public.websiteName + "的網站區塊、快捷鍵和網站地圖"
+);
+const route = useRoute();
 
 useHead({
   title: pageTitle,
   meta: [
     {
-      hid: 'description',
-      name: 'description',
-      content: pageDescription.value
-    },
-    { hid: 'og:url', property: 'og:url', content: runtimeConfig.public.baseUrl + route.path },
-    {
-      hid: 'og:title',
-      property: 'og:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      hid: "description",
+      name: "description",
+      content: pageDescription.value,
     },
     {
-      hid: 'og:description',
-      property: 'og:description',
-      content: pageDescription.value
+      hid: "og:url",
+      property: "og:url",
+      content: runtimeConfig.public.baseUrl + route.path,
     },
     {
-      hid: 'twitter:url',
-      name: 'twitter:url',
-      content: runtimeConfig.public.baseUrl + route.path
+      hid: "og:title",
+      property: "og:title",
+      content: pageTitle.value + " - " + runtimeConfig.public.websiteName,
     },
     {
-      hid: 'twitter:title',
-      name: 'twitter:title',
-      content: pageTitle.value + ' - ' + runtimeConfig.public.websiteName
+      hid: "og:description",
+      property: "og:description",
+      content: pageDescription.value,
     },
     {
-      hid: 'twitter:description',
-      name: 'twitter:description',
-      content: pageDescription.value
-    }
-  ]
-})
+      hid: "twitter:url",
+      name: "twitter:url",
+      content: runtimeConfig.public.baseUrl + route.path,
+    },
+    {
+      hid: "twitter:title",
+      name: "twitter:title",
+      content: pageTitle.value + " - " + runtimeConfig.public.websiteName,
+    },
+    {
+      hid: "twitter:description",
+      name: "twitter:description",
+      content: pageDescription.value,
+    },
+  ],
+});
 
-const checkScrollable = ref<HTMLElement | null>(null)
-const tabIndex = ref()
+const checkScrollable = ref<HTMLElement | null>(null);
+const tabIndex = ref();
 const checkTabAble = () => {
   if (
     checkScrollable.value!.scrollWidth > 0 &&
     checkScrollable.value!.scrollWidth > checkScrollable.value!.clientWidth
   ) {
-    tabIndex.value = 0
+    tabIndex.value = 0;
   } else {
-    tabIndex.value = null
+    tabIndex.value = null;
   }
-}
+};
 onMounted(() => {
-  checkTabAble()
-  window.addEventListener('resize', checkTabAble)
-})
+  checkTabAble();
+  window.addEventListener("resize", checkTabAble);
+});
 </script>

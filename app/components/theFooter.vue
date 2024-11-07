@@ -1,7 +1,9 @@
 <template>
   <footer>
     <div class="footer-header">
-      <a id="ak-footer" href="#ak-footer" title="下方功能區塊" accesskey="Z"> ::: </a>
+      <a id="ak-footer" href="#ak-footer" title="下方功能區塊" accesskey="Z">
+        :::
+      </a>
     </div>
     <div class="footer-container">
       <div>
@@ -63,7 +65,7 @@
 footer {
   background-color: rgb(var(--footer-bg, var(--footer-bg-default)));
   color: rgb(var(--footer-color, var(--footer-color-default)));
-  & .footer-container {
+  .footer-container {
     display: flex;
     justify-content: space-around;
     gap: 1.5rem;
@@ -75,16 +77,17 @@ footer {
       flex-direction: column;
       padding: 1rem;
     }
-    & a {
+    a {
       text-decoration: underline;
       text-decoration-style: dotted;
       color: rgb(var(--footer-link-color, var(--footer-link-color-default)));
     }
   }
-  & .footer-footer {
+  .footer-footer {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    border-top: 1px solid rgba(var(--footer-border-color, var(--footer-border-color-default)), 0.3);
+    border-top: 1px solid
+      rgba(var(--footer-border-color, var(--footer-border-color-default)), 0.3);
     text-align: center;
   }
 }

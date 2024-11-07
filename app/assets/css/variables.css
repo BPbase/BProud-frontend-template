@@ -1,13 +1,12 @@
 :root {
-
   /* Base Colors */
   --color-black: 33, 33, 33;
   --color-white: 255, 255, 255;
   --color-gray: 72, 72, 72;
 
-   /* Font */
-   --font-size-base: 1rem;
-   --font-family: system-ui, Helvetica, Arial, sans-serif;
+  /* Font */
+  --font-size-base: 1rem;
+  --font-family: system-ui, Helvetica, Arial, sans-serif;
 
   /* Breakpint */
   --breakpoint-375: 375px;
@@ -28,7 +27,7 @@
   --color-warning: 255, 104, 36;
   --color-danger: 219, 1, 39;
   --color-visited: 95, 73, 210;
-  
+
   /* Outline */
   --outline-color: 254, 186, 8;
 
@@ -84,14 +83,14 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    
+
     --color-primary: 68, 178, 170;
     --color-primary-modified: 3, 3, 3;
     --color-success: 180, 200, 71;
     --color-warning: 255, 104, 36;
     --color-danger: 219, 1, 39;
     --color-visited: 206, 206, 206;
-    
+
     /* Outline */
     --outline-color: 254, 186, 8;
 

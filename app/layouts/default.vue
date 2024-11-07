@@ -4,11 +4,23 @@
     <Meta name="viewport" content="width=device-width, initial-scale=1" />
     <Meta hid="keywords" name="keywords" content="" />
     <Meta name="author" content="" />
-    <Meta name="copyright" content="copyright" />
+    <Meta name="copyright" content="" />
     <Meta name="format-detection" content="telephone=no" />
-    <Meta hid="description" name="description" :content="runtimeConfig.public.websiteDescription" />
-    <Meta hid="og:url" property="og:url" :content="runtimeConfig.public.baseUrl" />
-    <Meta hid="og:title" property="og:title" content="runtimeConfig.public.websiteName" />
+    <Meta
+      hid="description"
+      name="description"
+      :content="runtimeConfig.public.websiteDescription"
+    />
+    <Meta
+      hid="og:url"
+      property="og:url"
+      :content="runtimeConfig.public.baseUrl"
+    />
+    <Meta
+      hid="og:title"
+      property="og:title"
+      content="runtimeConfig.public.websiteName"
+    />
     <Meta
       hid="og:description"
       property="og:description"
@@ -20,8 +32,16 @@
       :content="runtimeConfig.public.baseUrl + '/images/social-media.png'"
     />
     <Meta name="twitter:card" content="summary_large_image" />
-    <Meta hid="twitter:url" name="twitter:url" :content="runtimeConfig.public.baseUrl" />
-    <Meta hid="twitter:title" name="twitter:title" :content="runtimeConfig.public.websiteName" />
+    <Meta
+      hid="twitter:url"
+      name="twitter:url"
+      :content="runtimeConfig.public.baseUrl"
+    />
+    <Meta
+      hid="twitter:title"
+      name="twitter:title"
+      :content="runtimeConfig.public.websiteName"
+    />
     <Meta
       hid="twitter:description"
       name="twitter:description"
@@ -34,7 +54,10 @@
     />
     <Meta name="mobile-web-app-capable" content="yes" />
     <Meta name="apple-touch-fullscreen" content="yes" />
-    <Meta name="apple-mobile-web-app-title" :content="runtimeConfig.public.websiteName" />
+    <Meta
+      name="apple-mobile-web-app-title"
+      :content="runtimeConfig.public.websiteName"
+    />
     <Meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
     <Link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -49,25 +72,25 @@
     <!-- https://github.com/elegantapp/pwa-asset-generator/issues/71 -->
     <!-- Deprecated media feature device-width -->
     <!-- <Link
-      rel="apple-touch-startup-image"
-      href="/images/splash/splash-640x1136.png"
-      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-    /> -->
+        rel="apple-touch-startup-image"
+        href="/images/splash/splash-640x1136.png"
+        media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      /> -->
     <!-- <Link
-      rel="apple-touch-startup-image"
-      href="/images/splash/splash-750x1334.png"
-      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
-    /> -->
+        rel="apple-touch-startup-image"
+        href="/images/splash/splash-750x1334.png"
+        media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      /> -->
     <!-- <Link
-      rel="apple-touch-startup-image"
-      href="/images/splash/splash-1125x2436.png"
-      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-    /> -->
+        rel="apple-touch-startup-image"
+        href="/images/splash/splash-1125x2436.png"
+        media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+      /> -->
     <!-- <Link
-      rel="apple-touch-startup-image"
-      href="/images/splash/splash-1242x2208.png"
-      media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
-    /> -->
+        rel="apple-touch-startup-image"
+        href="/images/splash/splash-1242x2208.png"
+        media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+      /> -->
 
     <!-- <Link rel="preconnect" href="https://fonts.googleapis.com" /> -->
     <!-- <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" /> -->
@@ -78,40 +101,30 @@
 
     <Body class="wrapper">
       <div class="layout">
-        <noscript class="noscript" data-html2canvas-ignore="true">
-          您的瀏覽器不支援 JavaScript 功能，若網頁功能無法正常使用時，請開啟瀏覽器 JavaScript 狀態。
-          Your browser does not support JavaScript!
+        <noscript class="noscript">
+          您的瀏覽器不支援 JavaScript
+          功能，若網頁功能無法正常使用時，請開啟瀏覽器 JavaScript 狀態。 Your
+          browser does not support JavaScript!
         </noscript>
         <TheHeader />
         <slot />
         <TheFooter />
       </div>
-      <button
-        type="button"
-        v-show="scrollDistance > 300"
-        class="btn-back-to-top"
-        @click="scrollToTop"
-      >
-        <span class="visually-hidden">捲動畫面至最上面</span>
-        🔝
-      </button>
     </Body>
   </Html>
 </template>
 
 <script setup lang="ts">
-const runtimeConfig = useRuntimeConfig()
+const runtimeConfig = useRuntimeConfig();
 useHead({
   titleTemplate: (pageTitle) => {
     return pageTitle
       ? `${pageTitle} - ${runtimeConfig.public.websiteName}`
-      : `${runtimeConfig.public.websiteName}`
-  }
-})
-
-const { scrollToTop, scrollDistance } = useScrollToTop()
+      : `${runtimeConfig.public.websiteName}`;
+  },
+});
 </script>
 
 <style>
-@import url('@/assets/css/style.css');
+@import url("@/assets/css/style.css");
 </style>
