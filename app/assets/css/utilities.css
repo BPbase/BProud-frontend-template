@@ -1,24 +1,4 @@
 /*************************
-  Text Colors
-*************************/
-
-.color-primary {
-  color: rgb(var(--color-primary));
-}
-
-.color-success {
-  color: rgb(var(--color-success));
-}
-
-.color-warning {
-  color: rgb(var(--color-warning));
-}
-
-.color-danger {
-  color: rgb(var(--color-danger));
-}
-
-/*************************
   A11y
 *************************/
 
@@ -33,6 +13,7 @@
   white-space: nowrap !important;
   border: 0 !important;
 }
+
 
 /*************************
   Keyframes

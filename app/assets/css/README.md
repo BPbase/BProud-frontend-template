@@ -31,15 +31,29 @@ print 因為是獨立且不可被覆蓋，所以也是放後面。
 
 # 顏色
 
-目前仍先採用 CSS 3 寫法(css variable 寫 rgb 數值為佳，方便使用 rgba())，  
-待 CSS Color Module level 5 支援時，建議使用 oklch。
+### oklch(l c h)
 
-使用 CSS Color Module level 4 的 oklch(x% x.x x.x / x%)，可以使用的色域更廣，也對 a11y 更好。  
-若瀏覽器支援 CSS Color Module level 5，則可能可以進一步使用 oklch(from x% x.x x.x l c h / x%) 計算與變化顏色（將需要調整的數值，取代 l、c、h 字母的）以及在 oklch 裡使用 HEX，例如 oklch(#bbb)，  
-可以更方便統一管理顏色（到時需要更改 CSS 顏色變數值以及寫法修正），  
-建議在 Component 裡的 CSS Variables 預設值，也使用 CSS Variables 方式管理，  
-但目前在 CSS Variables 裡，只會寫 x% x.x x.x，這是因為 CSS Color Module level 5 還沒有獲得普遍支援，  
-也許現在會有點困擾，但為了日後銜接順利，建議大家遵守規範。
+基底顏色使用 --color-XXX 命名，且內容只寫 l c h 三個數字。  
+應用的地方，則命名 --容器或功能-屬性 命名，盡量白話容易理解，例如 --table-th-bg。  
+在 .table 時就可以寫css 就應用成
+
+```
+table {
+  th {
+    background-color: oklch(var(--table-th-bg));
+  }
+}
+```
+
+之後想再改變透明度： oklch(var(--table-th-bg) / 0.5);  
+如果之後支援，則可以 oklch(from var(--table-th-bg) l c h);  
+也就是基於 --table-th-bg 三個數字，取代成 l c h 三個數字，不想被取代的，就寫原來的字母。
+https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch
+
+```
+oklch(from var(--table-th-bg) l c h);
+oklch(from var(--table-th-bg) 0.2 0.5 h);  /* h 不變 */
+```
 
 # CSS 註解 Style
 
